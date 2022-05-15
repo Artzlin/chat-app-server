@@ -23,15 +23,26 @@ io.on('connection', function(socket) {
     console.log("SERVER: the message is: "+msg.text)
 
     socket.broadcast.emit("receive",msg)
-
-
-    //stop events handling
-socket.on("send-stop",()=>{
-  console.log("stopping is requested")
-
-  socket.broadcast.emit("receive-stop")
-});
 })
+//stop events handling
+  socket.on("send-stop",()=>{
+    console.log("stopping is requested")
+
+    socket.broadcast.emit("receive-stop")
+});
+
+
+//send vibr handling
+  socket.on("send-long",()=>{
+    socket.broadcast.emit("receive-long")
+})
+//stop events handling
+  socket.on("send-long-stop",()=>{
+    socket.broadcast.emit("receive-long-stop")
+});
+
+
+
 });
 
 
