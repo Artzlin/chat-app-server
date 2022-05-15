@@ -33,12 +33,12 @@ io.on('connection', function(socket) {
 
 
 //send vibr handling
-  socket.on("send-long",()=>{
-    socket.broadcast.emit("receive-long")
+  socket.on("hello",()=>{
+    socket.broadcast.emit("bye")
 })
 //stop events handling
-  socket.on("send-long-stop",()=>{
-    socket.broadcast.emit("receive-long-stop")
+  socket.on("hello-stop",()=>{
+    socket.broadcast.emit("bye-stop")
 });
 
 
