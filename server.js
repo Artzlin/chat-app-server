@@ -1,4 +1,5 @@
-var io = require('socket.io')(process.env.PORT || 8321,{cors:{
+let port=process.env.PORT || 8321
+var io = require('socket.io')(port,{cors:{
     origin:['http://localhost:5500']
 }});
 
