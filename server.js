@@ -18,12 +18,23 @@ io.on('connection', function(socket) {
   
   console.log(socket.id);
 
+  //send vibr handling
   socket.on("send",(msg)=>{
     console.log("SERVER: the message is: "+msg.text)
 
     socket.broadcast.emit("receive",msg)
+
+
+    //stop events handling
+socket.on("send-stop",()=>{
+  console.log("stopping is requested")
+
+  socket.broadcast.emit("receive-stop")
 });
 })
+});
+
+
 
 
 
