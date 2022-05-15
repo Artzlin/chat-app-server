@@ -1,6 +1,14 @@
+const express=require("express");
+const app= express();
+
 let port=process.env.PORT || 8321
-var io = require('socket.io')(port,{cors:{
-    origin:['http://localhost:5500']
+
+
+const server=app.listen(port)
+
+var io = require('socket.io')(server,{cors:{
+    origin:"*",
+    methods: ["GET", "POST"]
 }});
 
 
@@ -19,4 +27,7 @@ io.on('connection', function(socket) {
 
 
 
-
+app.get("/",(req,res)=>
+{
+  res.send("started the server")
+})
